@@ -1,0 +1,57 @@
+h3 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  width: 50%;
+  margin-right: 2px;
+}
+
+.formHelp {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: grey;
+}
+
+.visibilityOff {
+  visibility: hidden;
+}
+
+.visibilityOn {
+  visibility: visible;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 80%;
+}
+
+.formBox {
+  background-color: rgb(255, 233, 204);
+  border: 1px solid rgb(255, 233, 204);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.answerBox {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  margin-bottom: 5px;
+}
+
+.box {
+  border-radius: 5px;
+  padding: 10px;
+}
