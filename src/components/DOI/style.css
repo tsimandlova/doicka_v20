@@ -11,10 +11,35 @@ input {
   margin-right: 2px;
 }
 
-.formHelp {
-  font-style: italic;
-  font-size: 0.8rem;
-  color: grey;
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+button {
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  margin: 5px 5px 5px 0px;
+  padding: 8px;
+}
+
+button:hover {
+  color: #000000;
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  margin: 5px 5px 5px 0px;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .visibilityOff {
@@ -36,19 +61,27 @@ input {
 
 .formBox {
   border: 1px solid #D22D40;
+  background-color: #D22D40;
+  color: #FFFFFF;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.formHelp {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #e3e3e3;
 }
 
 .answerBox {
   border: 1px solid black;
   border-radius: 5px;
-  padding: 2px;
+  padding: 10px;
   margin-bottom: 5px;
 }
 
 .box {
   border-radius: 5px;
-  padding: 10px;
+  padding: 0px;
 }
