@@ -11,6 +11,7 @@ const DOI = () => {
   const [button, setButton] = useState(false);
   const [info, setInfo] = useState([]);
   const [openApc, setOpenApc] = useState([]);
+  const [openApcInst, setOpenApcInst] = useState('');
   const [bestLocation, setBestLocation] = useState({});
   const [visibility, setVisibility] = useState(false);
 
@@ -20,26 +21,32 @@ const DOI = () => {
     .then( data => {
       setInfo(data);
       setBestLocation(data.best_oa_location);
-      console.log(data);
-      console.log(data.best_oa_location);
+      // console.log(data);
+      // console.log(data.best_oa_location);
+      })
+  };
+
+  const loadData2 = () => {
+    fetch(`https://olap.openapc.net/cube/openapc/aggregate?drilldown=doi&cut=doi:${doi}`)
+    .then( response => response.json() )
+    .then( data => {
+      setOpenApc(data.summary);
       }
     )
   };
 
-  const loadData2 = () => {
-    fetch(`https://olap.openapc.net/cube/openapc/facts`)
+  const loadData3 = () => {
+    fetch(`https://olap.openapc.net/cube/openapc/aggregate?drilldown=institution&cut=doi:${doi}`)
     .then( response => response.json() )
-    .then( data => {
-      setOpenApc(data);
-      console.log(data);
-      }
-    )
+    .then( (json) => 
+      setOpenApcInst(json.cells[0].institution))
   };
 
   useEffect ( 
     () => {
       loadData();
       loadData2();
+      loadData3();
     }, 
     [button]
   );
@@ -68,7 +75,6 @@ const DOI = () => {
         </form>
         <p></p>
       </div>
-      {console.log(doi)}
 
       { visibility === true 
           ? <>
@@ -76,7 +82,7 @@ const DOI = () => {
                 doi={doi} 
                 title={info.title}
                 is_oa={info.is_oa}
-                // url={bestLocation.url}
+                // url={bestLocation}
                 journal_name={info.journal_name}
                 journal_issns={info.journal_issns}
                 journal_issn_l={info.journal_issn_l}
@@ -85,7 +91,11 @@ const DOI = () => {
                 journal_is_in_doaj={info.journal_is_in_doaj}
               /> 
 
-              <OpenAPC apc={openApc.apc}/> 
+              <OpenAPC 
+                doi={doi}
+                apc={openApc.apc_amount_avg}
+                institution={openApcInst}
+              /> 
 
               <CUNIServices 
                 doi={doi} 
