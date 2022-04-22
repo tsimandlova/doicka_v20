@@ -1,8 +1,4 @@
-h3 {
-  margin: 0;
-}
-
-h2 {
+h3, h2 {
   margin: 0;
 }
 
@@ -11,7 +7,7 @@ label {
 }
 
 input {
-  width: 50%;
+  width: 100%;
   margin-right: 2px;
 }
 
@@ -34,11 +30,12 @@ input {
   flex-direction: column;
   padding: 5px;
   max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .formBox {
-  background-color: rgb(255, 233, 204);
-  border: 1px solid rgb(255, 233, 204);
+  border: 1px solid #D22D40;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 5px;
